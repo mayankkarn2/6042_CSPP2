@@ -2,7 +2,13 @@ import java.util.Scanner;
 /**
  * Class for solution.
  */
-public class Solution {
+public final class Solution {
+        /**
+         * Constructs the object.
+         */
+    private Solution() {
+            //Hi
+    }
     /**
      * { function_description }.
      *
@@ -10,7 +16,7 @@ public class Solution {
      * @param      b     { parameter_description }
      * @param      c     { parameter_description }
      */
-    public static void rootsOfQuadraticEquation(final int a, final int b, final int c) {
+    public static void roots(final int a, final int b, final int c) {
         /**
          * { var_description }.
          */
@@ -28,7 +34,7 @@ public class Solution {
         int a = scan.nextInt();
         int b = scan.nextInt();
         int c = scan.nextInt();
-        rootsOfQuadraticEquation(a, b, c);
+        roots(a, b, c);
     }
     /*
     Need to write the rootsOfQuadraticEquation function and print the output.
