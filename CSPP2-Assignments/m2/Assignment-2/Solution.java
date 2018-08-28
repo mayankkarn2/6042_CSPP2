@@ -12,7 +12,7 @@ public class Solution {
      */
     public static void rootsOfQuadraticEquation(final int a, final int b, final int c) {
         /**
-         * { var_description }
+         * { var_description }.
          */
     final int four = 4;
     int dis = (b * b) - (four * a * c);
@@ -22,9 +22,8 @@ public class Solution {
 }
     public static void main(String[] args) {
         /**
-         * { var_description }
+         * { var_description }.
          */
-
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         int b = scan.nextInt();
