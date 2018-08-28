@@ -19,11 +19,11 @@ final class Solution {
      *
      * @return     { description_of_the_return_value }.
      */
-    public static long power(final int base,final int exponent) {
-        if(exponent == 0) {
+    public static long power(final int base, final int exponent) {
+        if (exponent == 0) {
             return 1;
         }
-        if(exponent == 1) {
+        if (exponent == 1) {
             return base;
         }
         else {
