@@ -7,8 +7,8 @@ public class Solution {
     */
     public static void rootsOfQuadraticEquation(final int a, final int b, final int c) {
     int dis = (b*b) - (4 * a * c);
-    double rootOne = (-b + (Math.sqrt(dis)))/(2 * a);
-    double rootTwo = (-b - (Math.sqrt(dis)))/(2 * a);
+    double rootOne = (-b + (Math.sqrt(dis))) / (2 * a);
+    double rootTwo = (-b - (Math.sqrt(dis))) / (2 * a);
     System.out.print(rootOne + " " + rootTwo);
 }
     public static void main(String[] args) {
