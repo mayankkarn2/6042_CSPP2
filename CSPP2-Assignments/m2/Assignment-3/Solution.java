@@ -23,7 +23,7 @@ final class Solution {
         if (exponent == 0) {
             return 1;
         }
-        if (exponent == 1) {
+        else if (exponent == 1) {
             return base;
         }
         else {
