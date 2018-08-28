@@ -1,11 +1,17 @@
 import java.util.Scanner;
 //import java.lang.Math;
-
 public class Solution {
-    /*
-        This finds the roots of function
-    */
+    /**
+     * { function_description }
+     *
+     * @param      a     { parameter_description }
+     * @param      b     { parameter_description }
+     * @param      c     { parameter_description }
+     */
     public static void rootsOfQuadraticEquation(final int a, final int b, final int c) {
+    	/**
+    	 * { var_description }
+    	 */
     final int four = 4;
     int dis = (b * b) - (four * a * c);
     double rootOne = (-b + (Math.sqrt(dis))) / (2 * a);
@@ -13,9 +19,9 @@ public class Solution {
     System.out.print(rootOne + " " + rootTwo);
 }
     public static void main(String[] args) {
-        /*
-            Do not modify this main function.
-        */
+    	/**
+    	 * { var_description }
+    	 */
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         int b = scan.nextInt();
@@ -26,4 +32,7 @@ public class Solution {
     Need to write the rootsOfQuadraticEquation function and print the output.
     */
 }
+
+
+
 
