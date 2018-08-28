@@ -2,9 +2,9 @@ import java.util.Scanner;
 /**
  * Class for solution.
  */
-public class Solution {
+final class Solution {
     /**
-     * { item_description }
+     * { item_description }.
      */
     private Solution(){
         /**
