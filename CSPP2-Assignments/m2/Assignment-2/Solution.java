@@ -4,7 +4,7 @@ import java.util.Scanner;
  */
 public class Solution {
     /**
-     * { function_description }
+     * { function_description }.
      *
      * @param      a     { parameter_description }
      * @param      b     { parameter_description }
