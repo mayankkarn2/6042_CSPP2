@@ -6,7 +6,7 @@ final class Solution {
     /**
      * { item_description }.
      */
-    private Solution(){
+    private Solution() {
         /**
          * Does nothing.
          */
