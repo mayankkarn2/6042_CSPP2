@@ -26,7 +26,12 @@ public final class Solution {
     double rootTwo = (-b - (Math.sqrt(dis))) / (2 * a);
     System.out.print(rootOne + " " + rootTwo);
 }
-    public static void main(String[] args) {
+    /**
+     * { function_description }
+     *
+     * @param      args  The arguments
+     */
+    public static void main(final String[] args) {
         /**
          * { var_description }.
          */
