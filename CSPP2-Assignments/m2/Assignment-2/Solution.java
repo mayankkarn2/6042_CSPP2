@@ -2,7 +2,7 @@ import java.util.Scanner;
 //import java.lang.Math;
 
 public class Solution {
-	/* 
+	/*
 		This finds the roots of function
 	*/
 	public static void rootsOfQuadraticEquation(int a, int b, int c) {
