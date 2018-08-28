@@ -27,7 +27,7 @@ public final class Solution {
     System.out.print(rootOne + " " + rootTwo);
 }
     /**
-     * { function_description }
+     * { function_description }.
      *
      * @param      args  The arguments
      */
