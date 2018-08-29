@@ -30,7 +30,7 @@ final class Solution {
         System.out.println(gcd(n1, n2));
     }
     /**
-     * { function_description }
+     * { function_description }.
      *
      * @param      n1    The n 1
      * @param      n2    The n 2
