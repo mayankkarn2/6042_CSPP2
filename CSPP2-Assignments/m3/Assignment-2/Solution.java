@@ -17,7 +17,7 @@ final class Solution {
     }
     public static void main(final String[] args) {
 
-        Scanner s = new Scanner(System.in);      
+        Scanner s = new Scanner(System.in);  
         int n = s.nextInt();
         int count = 0;
         for (int i = 1; i <= n; i++) {
