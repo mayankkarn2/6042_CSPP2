@@ -16,7 +16,6 @@ final class Solution {
         //Nothing happens here.
     }
     public static void main(final String[] args) {
-
         Scanner s = new Scanner(System.in);  
         int n = s.nextInt();
         int count = 0;
