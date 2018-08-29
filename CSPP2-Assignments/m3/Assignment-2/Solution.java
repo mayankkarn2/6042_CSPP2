@@ -17,12 +17,14 @@ public class Solution {
 	    	// System.out.println(isFound);
 	    	// System.out.println("-----------------");
 	    	if(isFound == true) {
-	    		if (i/10 == 7 && i % 10 == 7) {
-	    			count += 2;
+	    		char[] numb = number.toCharArray();
+	    		int count7 = 0;
+	    		for(char num : numb) {
+	    			if(num == '7') {
+	    				count7 += 1;
+	    			}
 	    		}
-	    		else {
-	    			count += 1;
-	    		}
+	    		count += count7;
 	    	}
 	   
 	    }
