@@ -27,7 +27,7 @@ final class Solution {
         for (int i = 1; i <= n; i++) {
             String number = Integer.toString(i);
             boolean isFound = number.contains("7");
-            if (isFound == true) {
+            if (isFound) {
                 char[] numArr = number.toCharArray();
                 int count7 = 0;
                 for (char num : numArr) {
