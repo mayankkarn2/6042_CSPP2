@@ -16,7 +16,7 @@ final class Solution {
         //Nothing happens here.
     }
     /**
-     * { function_description }
+     * { function_description }.
      *
      * @param      args  The arguments
      */
@@ -28,18 +28,16 @@ final class Solution {
             String number = Integer.toString(i);
             boolean isFound = number.contains("7");
             if (isFound == true) {
-                char[] num_arr = number.toCharArray();
+                char[] numArr = number.toCharArray();
                 int count7 = 0;
-                for (char num : num_arr) {
-                    if(num == '7') {
+                for (char num : numArr) {
+                    if (num == '7') {
                         count7 += 1;
                     }
                 }
                 count += count7;
             }
-       
         }
         System.out.println(count);
-        
     }
 }
