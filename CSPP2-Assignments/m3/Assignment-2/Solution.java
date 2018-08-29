@@ -10,23 +10,23 @@ final class Solution {
  * @param      args  The arguments
  */
 /**
- * { item_description }
+ * { item_description }.
  */
     private Solution() {
         //Nothing happens here.
     }
     public static void main(final String[] args) {
 
-        Scanner s=new Scanner(System.in);      
+        Scanner s = new Scanner(System.in);      
         int n = s.nextInt();
         int count = 0;
-        for(int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             String number = Integer.toString(i);
             boolean isFound = number.contains("7");
-            if(isFound == true) {
+            if (isFound == true) {
                 char[] numb = number.toCharArray();
                 int count7 = 0;
-                for(char num : numb) {
+                for (char num : numb) {
                     if(num == '7') {
                         count7 += 1;
                     }
