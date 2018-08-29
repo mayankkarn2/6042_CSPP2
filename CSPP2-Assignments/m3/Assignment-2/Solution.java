@@ -24,9 +24,9 @@ final class Solution {
             String number = Integer.toString(i);
             boolean isFound = number.contains("7");
             if (isFound == true) {
-                char[] numb = number.toCharArray();
+                char[] num_arr = number.toCharArray();
                 int count7 = 0;
-                for (char num : numb) {
+                for (char num : num_arr) {
                     if(num == '7') {
                         count7 += 1;
                     }
