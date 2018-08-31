@@ -1,11 +1,11 @@
+/**
+ * @author Mayank
+ */
 import java.util.Scanner;
 /**
- * Class for solution.
+ * Class for addition of Matrices.
  */
 final class Solution {
-    /**
-     * { item_description }.
-     */
     /**
      * Constructs the object.
      */
@@ -14,14 +14,11 @@ final class Solution {
     }
     /* Fill the main function to print resultant of addition of matrices*/
     /**
-     * { function_description }.
+     * This is the main function.
      *
      * @param      args  The arguments
      */
     public static void main(final String[] args) {
-        /**
-         * { var_description }.
-         */
         Scanner s = new Scanner(System.in);
         int rowsOne = s.nextInt();
         // System.out.println(rowsOne);

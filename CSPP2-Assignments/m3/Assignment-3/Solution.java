@@ -1,10 +1,9 @@
-
-import java.util.Scanner;
-/*
-    Do not modify this main function.
-    */
 /**
- * { item_description }.
+ * @author: Mayank
+ */
+import java.util.Scanner;
+/**
+ * Class to compute GCD.
  */
 final class Solution {
     /**
@@ -15,7 +14,7 @@ final class Solution {
         //Nothing happens here
     }
     /**
-     * { function_description }.
+     * This is main function.
      *
      * @param      args  The arguments
      */
@@ -30,7 +29,7 @@ final class Solution {
         System.out.println(gcd(n1, n2));
     }
     /**
-     * { function_description }.
+     * Calculates GCD and returns value.
      *
      * @param      n1    The n 1
      * @param      n2    The n 2

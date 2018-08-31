@@ -1,16 +1,20 @@
+/**
+ * @author Mayank
+ */
 import java.util.Scanner;
 /**
- * Class for solution.
+ * Class for calculating the largest
+ * number in array.
  */
 final class Solution {
     /**
-     * { item_description }.
+     * Constructor for Solution.
      */
     private Solution() {
         //Nothing happens here
     }
     /**
-     * { function_description }.
+     * This is the main function.
      *
      * @param      args  The arguments
      */

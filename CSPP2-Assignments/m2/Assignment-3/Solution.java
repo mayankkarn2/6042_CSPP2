@@ -1,10 +1,13 @@
+/**
+ * @author Mayank
+ */
 import java.util.Scanner;
 /**
- * Class for solution.
+ * Class for calculating a power b.
  */
 final class Solution {
     /**
-     * { item_description }.
+     * This is the constructor for Solution.
      */
     private Solution() {
         /**
@@ -12,12 +15,13 @@ final class Solution {
          */
     }
     /**
-     * { function_description }.
+     * This method returns the value of 
+     * a power b.
      *
      * @param      base      The base
      * @param      exponent  The exponent
      *
-     * @return     { description_of_the_return_value }.
+     * @return      a power b.
      */
     public static long power(final int base, final int exponent) {
         if (exponent == 0) {
@@ -29,7 +33,8 @@ final class Solution {
         }
     }
     /**
-     * { function_description }.
+     * This function reads the input and prints
+     * the output.
      *
      * @param      args  The arguments
      */

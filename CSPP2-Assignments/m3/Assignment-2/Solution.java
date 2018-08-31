@@ -1,22 +1,28 @@
-
+/**
+ * @author Mayank
+ */
 import java.util.Scanner;
 /**
- * Class for solution.
+ * Class for Counting 7's upto n.
  */
 final class Solution {
 /**
- * { function_description }
+ * { This class counts the 7 repeated upto
+ * 		n   
+ * }
  *
  * @param      args  The arguments
  */
 /**
- * { item_description }.
+ * .
  */
     private Solution() {
         //Nothing happens here.
     }
     /**
-     * { function_description }.
+     * This is the main function.
+     * It takes the input n and returns 
+     * the count of 7 upto n.
      *
      * @param      args  The arguments
      */

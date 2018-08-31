@@ -1,3 +1,6 @@
+/**
+ * @author : Mayank
+ */
 import java.util.Scanner;
 /**
  * Class for solution.
@@ -7,18 +10,20 @@ public final class Solution {
          * Constructs the object.
          */
     private Solution() {
-            //Hi
+            //Nothing happens here
     }
     /**
-     * { function_description }.
+     * .
      *
-     * @param      a     { parameter_description }
-     * @param      b     { parameter_description }
-     * @param      c     { parameter_description }
+     * @param      a     Coefficient of x square
+     * @param      b     Coefficient of x
+     * @param      c     Constant
      */
     public static void roots(final int a, final int b, final int c) {
         /**
-         * { var_description }.
+         * This function gives roots of QE.
+         * Input : Integer
+         * Output : Double
          */
     final int four = 4;
     int dis = (b * b) - (four * a * c);
@@ -27,7 +32,7 @@ public final class Solution {
     System.out.print(rootOne + " " + rootTwo);
 }
     /**
-     * { function_description }.
+     * This is the main function. It prints roots.
      *
      * @param      args  The arguments
      */
@@ -41,9 +46,6 @@ public final class Solution {
         int c = scan.nextInt();
         roots(a, b, c);
     }
-    /*
-    Need to write the rootsOfQuadraticEquation function and print the output.
-    */
 }
 
 
