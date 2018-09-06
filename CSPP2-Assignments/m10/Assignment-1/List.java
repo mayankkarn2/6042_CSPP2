@@ -1,10 +1,8 @@
 import java.io.BufferedInputStream;
 import java.util.Scanner;
-/**
- * main class List.
- */
-public final class List {
-    //Implement all the methods mentioned to build a ListADT
+
+public class List {
+	//Implement all the methods mentioned to build a ListADT
 
     /*
      * The goal for the list is to store items.
@@ -27,13 +25,12 @@ public final class List {
      * This is a hard concept to understand. Discuss with your mentor.
      *
     */
+    
     // declare a private int[]
     // don't create the array yet using new
     // that's the job of the List constructor
-    /**
-     * list is private.
-     */
     private int[] list;
+
     /*
      * What are the other class variables needed for creating a list?
      * How about keeping track of the size of the list?
@@ -51,22 +48,21 @@ public final class List {
      * So, to keep track of the size we need a variable called size
      * Again, we use private as we don't want that size variable
      * to be accessed by the methods that are outside of the List class.
+     * 
      */
 
     // declare a private int size
     // again, don't initialize it here
     // variable initialization should be done in the constructor
-    /**
-     * size is private.
-     */
     private int size;
+
     /*
-     * The purpose of the constructor is to initialize the class variables with
-     * some default values.
+     * The purpose of the constructor is to initialize the
+     * class variables with some default values.
      */
-    /**
-     * Constructs the object list.
-     */
+    
+    
+
     public List() {
 
         // what are the two variables to be initialized here?
@@ -74,15 +70,34 @@ public final class List {
         // What should be the default values?
         // In the case of the list, it should be empty but
         // it should be initialized with an array size like 10
+        list = new int[10];
 
         // Think about the initial value for size.
         // How many items do we have in the list when you create it?
         // An empty list has how many items?
         // That is the initial value to use for size.
         size = 0;
-        final int max = 20;
-        list = new int[max];
     }
+
+    /*
+     * Overloaded constructor with list capacity as argument
+     * The default constructor sets the list capacity to 10
+     * So, adding an item when the list size is 10
+     * raises a Index Out of Bounds Exception
+     * There will be some clients of the ADT that will require
+     * the list to contain n elements which is known
+     * at the time of creating the list.
+     * 
+     * The overloaded constructor is a way to initialize a list with
+     * a list capacity of n items where n is given as an argument to
+     * constructor.
+     * 
+     */
+    public List(int capacity) {
+        size = 0;
+        list = new int[capacity];
+    }
+    
     /*
      * The add method does what the name suggests.
      * Add an int item to the list.
@@ -91,31 +106,55 @@ public final class List {
      * Is it the same as the end of the array?
      * Think about how you can use the size variable to add item
      * to the list.
+     * 
      * The method returns void (nothing)
      */
-    /**
-     * add items to the list.
-     *
-     * @param      item  item is integer.
-     */
-    public void add(final int item) {
-        //Inserts the specified element at the end of the list.
-        list[size] = item;
-        size++;
+    public void add(int item) {
+        //Inserts the specified element at the end of the zelist.
+        list[size++] = item;   
     }
+
+    /*
+     *
+     * Resize the list
+     * Sometimes the clients of the ADT won't know the expected list capacity
+     * To solve this the list has to grow dynamically
+     * when the maximum capacity is reached and there is no room to add items.
+     * So, how do we dynamically resize the list?
+     * Java doesn't support resize of array. Here are some options.
+     *
+     * Option 1
+     * Create a new array of the desired size,
+     * and copy the contents from the original array to the new array,
+     * using java.lang.System.arraycopy(...);
+     * 
+     * Option 2
+     * Use java.util.Arrays.copyOf(...) methods which returns a bigger array,
+     * with the contents of the original array.
+     *
+     * TODO
+     * Create a method called resize(). Resize should create an new array that is
+     * double the size of the old array.
+     * Then copy the contents of the old array to the new one.
+     * 
+     * When should the resize method be invoked and from where?
+     * Will the client invoke resize or is it internal to List class?
+     * Should the resize be public method or private?
+     * Should the resize method return any values?
+     * You know enough of Object Oriented Programming to answer these questions :-)
+     *
+     */
+
+    // todo create resize method
+
     /*
      * The size method returns the value of the size.
      * The purpose of the method is to announce the size of the list
      * to the objects outside the list
+     * 
      * The method returns an int. Empty list should return 0.
      */
-    /**
-     * size of list.
-     *
-     * @return     return the size of list.
-     */
     public int size() {
-        // replace the code below to implement the size method
         return size;
     }
 
@@ -123,7 +162,7 @@ public final class List {
      * The remove method does what the name suggests.
      * Removes an int item, specified by the index argument, from the list
      * It also does an additional step.
-     * Think about what happens when
+     * Think about what happens when 
      * an item is removed from the middle of the list
      * It creates a hole in the list, right?
      * This would mean, all the items that are
@@ -131,7 +170,7 @@ public final class List {
      * moved to the left by one position.
      * Here is an example:
      * array = [1,2,3,0,0,0,0,0,0,0]
-     * remove(2) would remove the item 2
+     * remove(1) would remove the item 2 which is at index position 1.
      * But how do you remove the item from an array?
      * Well, the way to remove it is to move all
      * the items, that are to the right of the removed item, to the left
@@ -139,29 +178,15 @@ public final class List {
      * array = [1,3,0,0,0,0,0,0,0,0]
      * The method returns void (nothing)
      */
-    /**
-     * Constructs the object.
-     *
-     * @param      capacity  The capacity
-     */
-    public List(int capacity) {
-        size = 0;
-        list = new int[capacity];
-    }
-    /**
-     * removes the item of particular index.
-     *
-     * @param      index  The index is integer.
-     */
-    public void remove(final int index) {
+
+    public void remove(int index) {
         // write the logic for remove here.
         // Think about what to do to the size variable.
-        if (index < size) {
-            for (int i = index; i < size - 1; i++) {
+        if(index >= 0 && index < size) {
+            for(int i = index; i < size - 1; i++) {
                 list[i] = list[i + 1];
             }
             size--;
-            list[size] = 0;
         } else {
             System.out.println("Invalid Position Exception");
         }
@@ -175,22 +200,15 @@ public final class List {
      * How can an element not be there at a given position?
      * Well, if the position is greater than the number of items
      * in the list then that would mean the item doesn't exist.
-     * How do we check if the position is greater than the
+     * How do we check if the position is greater than the 
      * number of items in the list? Would size variable be useful?
      */
-    /**
-     * get uses to give list index.
-     *
-     * @param      index  The index
-     *
-     * @return     returns the index value of list.
-     */
-    public int get(final int index) {
-        // Replace the code below to write the code for get
-        if (index > -1 && index < size) {
+    public int get(int index) {
+        if(index < 0 || index >= size) {
+            return -1;
+        } else {
             return list[index];
         }
-        return -1;
     }
 
     /*
@@ -202,6 +220,7 @@ public final class List {
      * System.out.println(l);
      * This statement is a shortcut for
      * System.out.println(l.toString());
+     * 
      * So, implement the toString method to display the items
      * in the list in the square brackets notation.
      * i.e., if the list has numbers 1, 2, 3
@@ -212,92 +231,78 @@ public final class List {
      * not all the elements of the array.
      *
      */
-    /**
-     * Returns a string representation of the object.
-     *
-     * @return     String representation of the object.
-     */
     public String toString() {
-        // Replace the code below
+        if(size == 0)
+            return "[]";
         String str = "[";
-        String char1 = ",";
-        for (int i = 0; i < size - 1; i++) {
-            str += Integer.toString(list[i]);
-            if (i < size - 1) {
-                str += char1;
-            }
+        int i = 0;
+        for(i = 0; i < size - 1; i++) {
+            str = str + list[i] + ",";
         }
-        str += list[size - 1] + "]";
+        str = str + list[i] + "]";
         return str;
     }
+    
     /*
      * Contains return true if the list has
      * the item passed as an argument to the method
      * So, iterate through the list and return true if
      * the item exists and otherwise false
      */
-    /**
-     * perform the boolen operation.
-     *
-     * @param      item  The item
-     *
-     * @return     return true or false based on the condition.
-     */
-    public boolean contains(final int item) {
-        // Replace the code below
-        for (int i = 0; i < size; i++) {
-            if (list[i] == item) {
-                return true;
-            }
-        }
-        return false;
+    public boolean contains(int item) {
+        return indexOf(item) == -1;
     }
 
     /*
-     * Returns the index of the first occurrence
+     * Returns the index of the first occurrence 
      * of the specified element in this list,
      * or -1 if this list does not contain the element.
      */
-    /**
-     * Searches for the first match.
-     *
-     * @param      item  The item
-     *
-     * @return     returns the value of index.
-     */
-    public int indexOf(final int item) {
-        // Replace the code below
-        for (int i = 0; i < size; i++) {
-            if (list[i] == item) {
+    public int indexOf(int item) {
+        for(int i = 0; i < size; i++) {
+            if(item == list[i])
                 return i;
-            }
         }
         return -1;
     }
-    /**
-     * add method add the items with index values.
-     *
-     * @param      index  The index in integer
-     * @param      item   The item is integer
-     */
-    public void add(final int index, final int item) {
-        final int list1 = 20;
-        int[] array1 = new int[list1];
-        array1 = list.clone();
-        for (int j = index + 1; j < size + 1; j++) {
-            list[j] = array1[j - 1];
+   /*Inserts all the elements of specified int 
+    array to the end of list*/
+    public void addAll(int items[])
+    {
+        if (items.length == 0) {
+            System.out.println("[]");
         }
-        list[index] = item;
-        size += 1;
+        int length = items.length + size;
+        int temp = 0;
+        for (int i = size; i < length; i++) {
+            list[i] = items[temp];
+            temp += 1;
+        }
+        size = length; 
     }
-    /**
-     * count method count the items.
-     *
-     * @param      item  The item is integer
-     *
-     * @return     return the count value
+
+     /* 
+        Inserts the specified element at the specified index 
+	by moving all the elements to the right.
+        The method returns void (nothing)
      */
-    public int count(final int item) {
+    public void add(int index,int item) {
+        if (index < 0) {
+            System.out.println("Negative Index Exception");
+        }
+        else {
+            for (int i = size; i > index; i--) {
+                System.out.println(i);
+                list[i] = list[i-1];
+            }
+            list[index] = item;
+            size++;
+        }
+    }
+    
+    /* Returns the count of occurances of a given item in the list*/
+    public int count(int item)
+    {
         int count = 0;
         for (int j = 0; j < size; j++) {
             if (item == list[j]) {
@@ -306,26 +311,9 @@ public final class List {
         }
         return count;
     }
-    /**
-     * Adds all add the all items to a list.
-     *
-     * @param      items  The items is a integer
-     */
-    public void addAll(final int[] items) {
-        int length = items.length + size;
-        int temp = 0;
-        for (int i = size; i < length; i++) {
-            list[i] = items[temp];
-            temp += 1;
-        }
-        size = length;
-    }
-    /**
-     * main function.
-     *
-     * @param      args  The arguments
-     */
-    public static void main(final String[] args) {
+
+
+	public static void main(String[] args) {
         // create an object of the list to invoke methods on it
         List l = new List();
 
@@ -339,12 +327,28 @@ public final class List {
             String[] tokens = line.split(" ");
             // based on the list operation invoke the corresponding method
             switch (tokens[0]) {
-                case "add":
-                if (tokens.length <= 2) {
+               case "add":
+                if((tokens.length)==2){
+                String[] t = tokens[1].split(",");
+                if(t.length==1){
                     l.add(Integer.parseInt(tokens[1]));
-                } else {
-                    l.add(Integer.parseInt(tokens[1]),
-                        Integer.parseInt(tokens[2]));
+                }
+                else{
+                    if(t.length>1)
+                        l.add(Integer.parseInt(t[0]),Integer.parseInt(t[1]));
+                    }
+                }
+                break;
+                case "count":
+                System.out.println(l.count(Integer.parseInt(tokens[1])));
+                break;
+                case "addAll":
+                if(tokens.length==2){
+                String[] t1 = tokens[1].split(",");
+                int temp[]=new int[t1.length];
+                for(int i=0;i<temp.length;i++)
+                    temp[i]=Integer.parseInt(t1[i]);
+                l.addAll(temp);
                 }
                 break;
                 case "size":
@@ -371,22 +375,7 @@ public final class List {
                 case "contains":
                 System.out.println(l.contains(Integer.parseInt(tokens[1])));
                 break;
-                case "count":
-                System.out.println(l.count(Integer.parseInt(tokens[1])));
-                break;
-                case "addAll":
-                int[] temp = new int[tokens.length - 1];
-                int temp1 = 0, length = tokens.length;
-                for (int i = 1; i < length; i++) {
-                    temp[temp1] = Integer.parseInt(tokens[i]);
-                    temp1 += 1;
-                }
-                l.addAll(temp);
-                default:
-                break;
             }
         }
-    }
+	}
 }
-
-
