@@ -34,6 +34,7 @@ public class List<E> {
     public void add(E item) {
         //Inserts the specified element at the end of the list.
         //You can modify the code in this method.
+        // list[(size++)] = item;
         if (size == list.length) {
             resize();
         }
@@ -42,20 +43,17 @@ public class List<E> {
     /*Inserts all the elements of specified int
     array to the end of list*/
     public void addAll(E[] items) {
-        int i, j;
-        for (i = size, j = 0; j < items.length; i++, j++) {
-            if (size == list.length) {
-                resize();
-            }
-            list[i] = items[j];
-            size += 1;
+        //Write logic for addAll method
+        for(int i = 0; i < items.length; i++) {
+            add(items[i]);
         }
     }
     /**
      * { function_description }
      */
-    private void resize() {
-        list = Arrays.copyOf(list, 2 * list.length);
+    private E[] resize() {
+        list = Arrays.copyOf(list, size * 2);
+        return list;
     }
 
     /*
@@ -66,7 +64,7 @@ public class List<E> {
      * The method returns an int. Empty list should return 0.
      */
     public int size() {
-        return size;
+    	return size;
     }
     /*
      * The remove method does what the name suggests.
@@ -91,12 +89,10 @@ public class List<E> {
     public void remove(int index) {
         //Write logic for remove method
         if (index >= 0 && index < size) {
-            // if (list[index] == 0) {
-            //     System.out.println("Invalid Position Exception");
-            // }
             for (int i = index; i < size - 1; i++) {
-                list[i] = list[i + 1];
+                list[i] = list[i+1];
             }
+            list[size] = null;
             size--;
         } else {
             System.out.println("Invalid Position Exception");
@@ -114,13 +110,14 @@ public class List<E> {
      * number of items in the list? Would size variable be useful?
      */
     public E get(int index) {
-        //Write logic for get method
+         //Write logic for get method
         // return list[index];
-        Integer value = new Integer(-1);
-        if (index < 0 || index >= size) {
-            return (E)value;
-        } else {
+        if (index >=0 && index < size) {
             return list[index];
+        }
+        else {
+            System.out.println("Invalid position Exception");
+            return null;
         }
     }
     /*
@@ -144,7 +141,6 @@ public class List<E> {
      *
      */
     public String toString() {
-
         if (size == 0) {
             return "[]";
         }
@@ -156,7 +152,6 @@ public class List<E> {
         str = str + list[i] + "]";
         return str;
     }
-
     /*
      * Contains return true if the list has
      * the item passed as an argument to the method
@@ -164,7 +159,7 @@ public class List<E> {
      * the item exists and otherwise false
      */
     public boolean contains(E item) {
-        //Write logic for contains method
+		//Write logic for contains method
         return indexOf(item) != -1;
 
     }
@@ -175,9 +170,9 @@ public class List<E> {
      */
 
     public int indexOf(E item) {
-        //Write logic for indexOf method
+       //Write logic for indexOf method
         for (int i = 0; i < size; i++) {
-            if (item == (list[i])) {
+            if (item.equals(list[i])) {
                 return i;
             }
         }
@@ -188,8 +183,14 @@ public class List<E> {
      * are contained in the specified int array.
      */
     public void removeAll(E[] items) {
+        // write the logic
         for (int i = 0; i < items.length; i++) {
-            remove(indexOf(items[i]));
+            for (int j = 0; j < size; j++) {
+                if (items[i].equals(this.get(j))) {
+                    remove(j);
+                    j--;
+                }
+            }
         }
     }
 
@@ -198,43 +199,43 @@ public class List<E> {
      indicates the startIndex and the second parameter
      indicates the endIndex.
      */
-    public List subList(int n, int n2) {
-
-        List sublist = new List();
-        if (n < 0 || n2 > size) {
+    public List subList(int start, int end) {
+        if (start < 0) {
             System.out.println("Index Out of Bounds Exception");
             return null;
-        } else {
-            for (int i = n; i < n2; i++) {
-                sublist.add(list[i]);
-            }
-        } return sublist;
+        }
+        if (end < 0) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if (start > end) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if (end > size()) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        if (start == end) {
+            System.out.println("Index Out of Bounds Exception");
+            return null;
+        }
+        List<E> list1 = new List();
+        for (int i = start; i < end; i++) {
+            list1.add(this.get(i));
+        }
+        return list1;
     }
     /*Returns a boolean indicating whether the parameter
       i.e a List object is exactly matching with the given list or not.
-     */
+    */
+
     public boolean equals(List<E> listdata) {
-        // int count = 0;
-        // if (listdata.size() != size()) {
-        //     return false;
-        // }
-        // for(int j = 0;j<listdata.size;j++){
-        //     for (int i = 0; i < size; i++) {
-        //         System.out.println((listdata.list[j])+" "+list[i]);
-        //         if ((listdata.list[j]).equals(list[i])) {
-        //             count++;
-        //             System.out.println(count);
-        //         }
-        //     }
-        // }
-        // if (count == size) {
-        //     return true;
-        // } return false;
         return this.toString().equals(listdata.toString());
     }
     /*Removes all the elements from list*/
     public void clear() {
-        // write the logic for clear.
+        list = ((E[])new Object[10]);
         size = 0;
     }
 }
