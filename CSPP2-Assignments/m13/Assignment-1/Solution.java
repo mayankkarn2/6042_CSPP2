@@ -27,20 +27,25 @@ class Set {
         set[size++] = item;
     }
     public void add(final int item) {
-    	if(size < set.length) {
-    		for(int i = 0; i < size; i++) {
-    			if(set[i] == item) {
-
-    			}
-    			else {
-    				set[size] = item;
-                    size++;
-    			}
-    		}
-    	}
-    	else {
-    		resize(item);
-    	}
+        // System.out.println(item);
+        int flag = 0;
+        for(int i = 0; i < size; i++) {
+            if(set[i] == item) {
+                flag = 1;
+            }
+        }
+        if(flag == 0) {
+            // System.out.println("Hi");
+            if(set.length > size-1) {
+                // System.out.println("Hi");
+                set[size++] = item;
+                // System.out.println(size);
+                // System.out.println(set[size-1]);
+            }
+            else {
+                resize(item);
+            }
+        }
     }
     public boolean contains(int item) {
     	for (int i = 0; i < size; i++) {
@@ -53,12 +58,16 @@ class Set {
     
     public String toString() {
         if (size == 0) {
-            return "{ }";
+            return "{}";
         }
         else {
             String str = "{";
-            for (int i = 0; i < size -1; i++) {
-                str = str + set[i] + ", ";   
+            for (int i = 0; i < size; i++) {
+                if(i == size-1) {
+                    str = str + set[i];
+                } else {
+                    str = str + set[i] + ", ";
+                }  
             }
             str = str + "}";
             return str;
@@ -66,15 +75,7 @@ class Set {
     }
     public void add(int[] items) {
         for (int i = 0; i < items.length; i++) {
-            int search = items[i];
-            for (int j = 0; j < size; j++) {
-                if(set[j] == search) {
-
-                }
-                else {
-                    add(search);
-                }
-            }
+            add(items[i]);
         }
     }
     public int get(final int index) {
@@ -85,11 +86,18 @@ class Set {
             return set[index];
         }
     }
-    public Set intersection(Set s) {
+    public Set intersection(Set t) {
         Set ret = new Set();
-        for(int i = 0; i < size; i++) {
-            if(!(s.contains(set[i]))){
-                ret.add(set[i]);
+        // System.out.println(this.toString());
+        // System.out.println(this.size());
+        for(int i = 0; i < this.size(); i++) {
+            int search = this.get(i);
+            // System.out.println(search);
+            // System.out.println(search);
+            for(int j = 0; j < t.size(); j++) {
+                if(t.get(j)==(search)) {
+                    ret.add(search);
+                }
             }
         }
         return ret;
@@ -97,16 +105,16 @@ class Set {
     public Set retainAll(int[] items) {
         Set ret1 = new Set();
         String st = "";
-        for(int i = 0; i < items.length; i++) {
-            int search = items[i];
-            for(int j = 0; j < size; j++) {
-                if(search == set[i]) {
-                    if(st.contains(Integer.toString(set[i]))) {
+        for(int i = 0; i < size; i++) {
+            int search = set[i];
+            for(int j = 0; j < items.length; j++) {
+                if(search == items[j]) {
+                    if(st.contains(Integer.toString(set[j]))) {
 
                     }
                     else {
-                        ret1.add(set[i]);
-                        st = st + Integer.toString(set[i]);
+                        ret1.add(search);
+                        st = st + Integer.toString(set[j]);
                     }
                 }
             }
@@ -123,14 +131,19 @@ class Set {
             int col = 2;
             int[][] res = new int[rows][col];
             for(int i = 0; i < rows; i++) {
-                for(int j = 0; j < col; j++) {
-                    String str_set = Integer.toString(set[j]);
-                    String str_s = Integer.toString(s.get(j));
-                    res[i][j] = Integer.parseInt(str_set + str_s);
+                int[] a = new int[2];
+                a[0] = get(i);
+                System.out.println(a[0]);
+                for(int j = 0; j < s.size(); j++) {
+                    a[1] = s.get(i);
+                    for(int k = 0; k < 2; k++) {
+                        res[i][k] = a[k];
+                    }
                 }
             }
             return res;
         }
+
     }
 }
 /**

@@ -114,8 +114,8 @@ public class List {
         // System.out.println(list.length);
         // System.out.println(size);
         if(size >= list.length-1) {
-        	int range = 2*list.length;
-        	int[] list2 = new int[range];
+        	// int range = 2*list.length;
+        	// int[] list2 = new int[range];
         	list = resize();
         	list[size++] = item;
         }
