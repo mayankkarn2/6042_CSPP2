@@ -6,26 +6,51 @@ import java.util.Arrays;
  * Class for set.
  * @author : Mayank Karn
  */
+/**
+ * Class for set.
+ */
 class Set {
-    
-    private int[] set;
-    private int size;
+    /**
+     * set is array
+     */
+    public int[] set;
+    public int size;
     public Set() {
     	final int ten = 10;
     	set = new int[ten];
     	size = 0;
     }
+    /**
+     * Constructs the object.
+     *
+     * @param      capacity  The capacity
+     */
     public Set(final int capacity) {
     	size = 0;
     	set = new int[capacity];
     }
+    /**
+     * returns the size
+     *
+     * @return     size
+     */
     public int size() {
     	return size;
     }
+    /**
+     * Resizes the array
+     *
+     * @param      item  The item
+     */
     public void resize(final int item) {
         set = Arrays.copyOf(set, size * 2);
         set[size++] = item;
     }
+    /**
+     * add item to set
+     *
+     * @param      item  The item
+     */
     public void add(final int item) {
         // System.out.println(item);
         int flag = 0;
@@ -47,6 +72,26 @@ class Set {
             }
         }
     }
+
+    public int getIndex(int item) {
+        // System.out.println(item);
+        // for(int a: set) {
+        //     System.out.println(a);
+        // }
+        for(int i = 0; i < size; i++) {
+            if(set[i] == item) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    /**
+     * checks if present or not
+     *
+     * @param      item  The item
+     *
+     * @return     true or false
+     */
     public boolean contains(int item) {
     	for (int i = 0; i < size; i++) {
     		if(set[i] == item) {
@@ -55,7 +100,11 @@ class Set {
     	}
     	return false;
     }
-    
+    /**
+     * Prints the set
+     *
+     * @return     String representation of the object.
+     */
     public String toString() {
         if (size == 0) {
             return "{}";
@@ -73,11 +122,23 @@ class Set {
             return str;
         }
     }
+    /**
+     * Adds an array
+     *
+     * @param      items  The items
+     */
     public void add(int[] items) {
         for (int i = 0; i < items.length; i++) {
             add(items[i]);
         }
     }
+    /**
+     * 
+     *
+     * @param      index  The index
+     *
+     * @return     { description_of_the_return_value }
+     */
     public int get(final int index) {
         // Replace the code below to write the code for get
         if (index < 0 || index >= size) {
@@ -122,29 +183,39 @@ class Set {
         return ret1;
     }
     public int[][] cartesianProduct(Set s) {
-        int length = s.size();
-        if(length == 0 || size == 0) {
+        // int length = s.size();
+        // if(length == 0 || size == 0) {
+        //     return null;
+        // }
+        // else {
+        //     int rows = length * size;
+        //     int col = 2;
+        //     int[][] res = new int[rows][col];
+        //     for(int i = 0; i < rows; i++) {
+        //         int[] a = new int[2];
+        //         for (int j = 0; j < size; j++) {
+        //             for(int k = 0; k < s.size(); k++) {
+        //                 a[0] = set[j];
+        //                 a[1] = s.get(k);
+        //             }
+        //         }
+        //     }
+        //     res[i] = a;
+        //     return res;
+        // }
+        int [][] result = new int[this.size() * s.size()][2];
+        int k = -1;
+        if (this.size() == 0 || s.size() == 0) {
             return null;
         }
-        else {
-            int rows = length * size;
-            int col = 2;
-            int[][] res = new int[rows][col];
-            for(int i = 0; i < rows; i++) {
-                int[] a = new int[2];
-                a[0] = get(i);
-                System.out.println(a[0]);
-                for(int j = 0; j < s.size(); j++) {
-                    a[1] = s.get(i);
-                    for(int k = 0; k < 2; k++) {
-                        res[i][k] = a[k];
-                    }
-                }
+        for (int i = 0; i < this.size(); i++) {
+            for (int j = 0; j < s.size(); j++) {
+                result[++k][0] = this.get(i);
+                result[k][1] = s.get(j);
             }
-            return res;
         }
-
-    }
+        return result;
+	}
 }
 /**
  * Solution class for code-eval.
