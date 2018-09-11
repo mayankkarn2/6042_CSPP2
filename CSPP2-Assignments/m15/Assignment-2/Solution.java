@@ -2,19 +2,34 @@ import java.io.BufferedInputStream;
 import java.util.Scanner;
 import java.util.Arrays;
 /**
- * Class for sorted set.
+ * Exception for signaling invalid sub selection errors.
  */
 class InvalidSubSelectionException extends Exception {
-    InvalidSubSelectionException(String s) {
+    /**
+     * Constructs the object.
+     *
+     * @param      s     message
+     */
+    InvalidSubSelectionException(final String s) {
         super(s);
     }
 }
-
+/**
+ * Exception for signaling emptyset errors.
+ */
 class EmptysetException extends Exception {
-    EmptysetException(String s) {
+    /**
+     * Constructs the object.
+     *
+     * @param      s     message
+     */
+    EmptysetException(final String s) {
         super(s);
     }
 }
+/**
+ * Class for sorted set.
+ */
 class SortedSet extends Set {
     /**
      * sort function.
@@ -45,18 +60,22 @@ class SortedSet extends Set {
         sort(set);
     }
     /**
-     * subset.
+     * subset of the set from start to end element.
      *
-     * @param      start  The start
-     * @param      end    The end
+     * @param      start                         The start
+     * @param      end                           The end
      *
-     * @return     from start to end returns elements.
+     * @return     returns int[] subset
+     *
+     * @throws     InvalidSubSelectionException  throws Exception
      */
-    public int[] subSet(final int start, final int end) throws InvalidSubSelectionException {
+    public int[] subSet(final int start, final int end) throws
+    InvalidSubSelectionException {
         //System.out.println("hi");
         if (start > end) {
             //System.out.println("hi");
-            throw new InvalidSubSelectionException("Invalid Arguements to Subset Exception");
+            throw new InvalidSubSelectionException(
+                "Invalid Arguments to Subset Exception");
         }
         // System.out.println("hi");
         int[] result = new int[size];
@@ -74,13 +93,15 @@ class SortedSet extends Set {
         return Arrays.copyOf(result, k);
     }
     /**
-     * headset function.
+     * Gives a head less than element.
      *
-     * @param      end   The end
+     * @param      end                The end
      *
-     * @return     returms elements.
+     * @return     returns int[] set
+     *
+     * @throws     EmptysetException  throws Exception
      */
-    public int[] headSet(final int end) throws EmptysetException{
+    public int[] headSet(final int end) throws EmptysetException {
         int[] result = new int[size];
         int temp = 0;
         for (int i = 0; i < size; i++) {
@@ -95,9 +116,11 @@ class SortedSet extends Set {
         return Arrays.copyOf(result, temp);
     }
     /**
-     * last function.
+     * Gives the last element in Set.
      *
-     * @return     returns list of elements.
+     * @return     an integer
+     *
+     * @throws     EmptysetException  throws Exception
      */
     public int last() throws EmptysetException {
         if (size == 0) {
@@ -211,11 +234,12 @@ public final class Solution {
                 }
                 int flag = 0;
                 String[] arrstring3 = tokens[1].split(",");
-                int[] object = new int[10];
+                final int ten = 10;
+                int[] object = new int[ten];
                 try {
                     object = s.subSet(Integer.parseInt(arrstring3[0]),
                                     Integer.parseInt(arrstring3[1]));
-                } catch(InvalidSubSelectionException e) {
+                } catch (InvalidSubSelectionException e) {
                     System.out.println(e.getMessage());
                     flag = 1;
                 }
@@ -229,10 +253,11 @@ public final class Solution {
                     break;
                 }
                 int flag1 = 0;
-                int[] obj = new int[10];
+                final int ten1 = 10;
+                int[] obj = new int[ten1];
                 try {
                     obj = s.headSet(Integer.parseInt(tokens[1]));
-                } catch(EmptysetException e) {
+                } catch (EmptysetException e) {
                     System.out.println(e.getMessage());
                     flag1 = 1;
                 }
@@ -249,7 +274,7 @@ public final class Solution {
                 int temp = 0;
                 try {
                     temp = s.last();
-                } catch(EmptysetException e) {
+                } catch (EmptysetException e) {
                     System.out.println(e.getMessage());
                     flag2 = 1;
                 }
