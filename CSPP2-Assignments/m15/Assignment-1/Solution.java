@@ -2,21 +2,35 @@ import java.io.BufferedInputStream;
 import java.util.Scanner;
 import java.util.Arrays;
 /**
- * List of integers.
+ * Exception for signaling invalid position errors.
  */
 class InvalidPositionException extends Exception {
-    public InvalidPositionException(String s) {
+    /**
+     * Constructs the object.
+     *
+     * @param      s     Message passed
+     */
+    InvalidPositionException(final String s) {
         super(s);
     }
 }
-
+/**
+ * Class for invalid index.
+ */
 class InvalidIndex extends Exception {
-    public InvalidIndex(String s) {
+    /**
+     * Constructs the object.
+     *
+     * @param      s     Message Passed
+     */
+    InvalidIndex(final String s) {
         super(s);
     }
 }
-
-public class Solution {
+/**
+ * Class for solution.
+ */
+final class Solution {
     //Implement all the methods mentioned to build a ListADT
      // * The goal for the list is to store items.
      // * How are we going to store the items in the list?
@@ -48,7 +62,7 @@ public class Solution {
     /**
      * Constructs the object of list with no params.
      */
-    public Solution() {
+    Solution() {
 
         // what are the two variables to be initialized here? think about the
         // private variables described above. What should be the default values?
@@ -69,7 +83,7 @@ public class Solution {
      *
      * @param      capacity  The capacity
      */
-    public Solution(final int capacity) {
+    Solution(final int capacity) {
         size = 0;
         list = new int[capacity];
     }
@@ -128,9 +142,11 @@ public class Solution {
      *
      */
     /**
-     * removes the element at an index.
+     * Removes an element at specified index.
      *
-     * @param      index  The index
+     * @param      index                     The index
+     *
+     * @throws     InvalidPositionException  Gives Exception if error occurs
      */
     public void remove(final int index) throws InvalidPositionException {
         // write the logic for remove here. Think about what to do to the size
@@ -271,7 +287,7 @@ public class Solution {
                         // remove(j);
                         try {
                             remove(j);
-                        } catch(InvalidPositionException ex){
+                        } catch (InvalidPositionException ex) {
 
                         }
                         j--;
@@ -279,7 +295,7 @@ public class Solution {
                         // remove(j);
                         try {
                             remove(j);
-                        } catch(InvalidPositionException ex) {
+                        } catch (InvalidPositionException ex) {
 
                         }
                     }
@@ -295,15 +311,17 @@ public class Solution {
     and also if start is greater than end.
     */
     /**
-     * Returns a list object containing elements, including startIndex and
-        excluding endIndex.
+     * Gives a sublist from.
      *
-     * @param      start  The start
-     * @param      end    The end
+     * @param      start         The start
+     * @param      end           The end
      *
-     * @return     List
+     * @return     { description_of_the_return_value }
+     *
+     * @throws     InvalidIndex  { exception_description }
      */
-    public Solution subList(final int start, final int end) throws InvalidIndex {
+    public Solution subList(final int start, final int end)
+    throws InvalidIndex {
     // write the logic for subList
         // if (start == end) {
         //     // System.out.println("Index Out of Bounds Exception");
@@ -358,11 +376,17 @@ public class Solution {
         }
         size = 0;
     }
-
-    public int count(int item) {
+    /**
+     * Counts the occurence of Elements in List.
+     *
+     * @param      item  The item
+     *
+     * @return     returns the count value
+     */
+    public int count(final int item) {
         int count = 0;
-        for(int i = 0; i < size; i++) {
-            if(list[i] == item) {
+        for (int i = 0; i < size; i++) {
+            if (list[i] == item) {
                 count += 1;
             }
         }
@@ -406,7 +430,7 @@ public class Solution {
                         // l.remove(Integer.parseInt(tokens[1]));
                         try {
                             l.remove(Integer.parseInt(tokens[1]));
-                        } catch(InvalidPositionException ex) {
+                        } catch (InvalidPositionException ex) {
                             System.out.println(ex.getMessage());
                         }
                     }
@@ -458,7 +482,7 @@ public class Solution {
                     try {
                         object = l.subList(Integer.parseInt(arrstring3[0]),
                                 Integer.parseInt(arrstring3[1]));
-                    } catch(InvalidIndex e) {
+                    } catch (InvalidIndex e) {
                         System.out.println(e.getMessage());
                         break;
                     }
@@ -483,7 +507,8 @@ public class Solution {
                     if (tokens.length == 2) {
                         String[] t5 = tokens[1].split(",");
                         if (t5.length == 1) {
-                            System.out.println(l.count(Integer.parseInt(tokens[1])));
+                            System.out.println(l.count(
+                                Integer.parseInt(tokens[1])));
                         }
                     }
                 default:
