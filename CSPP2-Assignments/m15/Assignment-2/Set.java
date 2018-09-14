@@ -1,11 +1,6 @@
 import java.io.BufferedInputStream;
 import java.util.Scanner;
 
-class InvalidSubsetSelectionException extends Exception {
-    InvalidSubsetSelectionException(String s) {
-        super(s);
-    }
-}
 public class Set {
 
     /**
