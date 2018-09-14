@@ -1,8 +1,21 @@
 import java.util.Scanner;
+/**
+ * Class for Solution.
+ */
 final class Solution {
-    private Solution() { 
-
+    /**
+     * Constructs the object.
+     */
+    private Solution() {
+        /**
+         * Nothing happens here
+         */
     }
+    /**
+     * This is the main function.
+     *
+     * @param      args  The arguments
+     */
     public static void main(final String[] args) {
         ShoppingCart shop = new ShoppingCart();
         Scanner sc = new Scanner(System.in);
@@ -28,7 +41,8 @@ final class Solution {
                 System.out.println("totalAmount: " + shop.getTotalAmount());
                 break;
             case "payableAmount":
-                System.out.println("Payable amount: " + shop.getPayableAmount());
+                System.out.println("Payable amount: "
+                    + shop.getPayableAmount());
                 break;
             case "remove":
                 String[] tokens12 = input[1].split(",");
