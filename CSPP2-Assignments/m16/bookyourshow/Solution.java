@@ -20,7 +20,7 @@ class Show {
     /**
      * Constructs the object.
      *
-     * @param      mvenam   The movie name 
+     * @param      mvenam   The movie name
      * @param      showdat  The showdat
      * @param      seats1   The seats 1
      */
