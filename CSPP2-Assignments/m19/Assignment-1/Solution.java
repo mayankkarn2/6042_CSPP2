@@ -72,15 +72,27 @@ public final class Solution {
             // System.out.println(Arrays.toString(inputs));
             // System.out.println(inputs[0]);
             // System.out.println(quiz.questions[count]);
+            if(inputs.length!=5) {
+                System.out.println("Error! Malformed question");
+                return;
+            }
             quiz.questions[count] = inputs[0];
             quiz.choices[count] = inputs[1];
             quiz.correctAns[count] = inputs[2];
+            if(quiz.correctAns[count] <1 && quiz.correctAns[count] > 4) {
+                System.out.println("Error! Correct answer choice number is out of range for question text 1");
+                return;
+            }
             quiz.marks[count] = inputs[3];
             quiz.penality[count] = inputs[4];
             count += 1;
             quiz.count += 1;
         }
-        System.out.println(questionCount + " are added to the quiz");
+        if(quiz.count > 0)
+            System.out.println(questionCount + " are added to the quiz");
+        else {
+            System.out.println("Quiz does not have questions");
+    }
     }
 
     /**
@@ -96,13 +108,16 @@ public final class Solution {
         // store the user respones in the quiz object
     int count1 = 0;
     Scanner sc1 = s;
+    if(quiz.count == 0) {
+        return;
+    }
     while(count1 < answerCount) {
-        System.out.println("question text " + (count1+1) + " (" + quiz.marks[count1] + ")");
+        System.out.println(quiz.questions[count1] + "(" + quiz.marks[count1] + ")");
         String[] options = quiz.choices[count1].split(",");
         int c = 1;
         for(String option : options) {
             if(c == 4) {
-                System.out.println(option);
+                System.out.print(option);
             }
             else {
                 System.out.print(option + "\t");
@@ -110,11 +125,13 @@ public final class Solution {
             c++;
         }
         String answer = sc1.nextLine();
-        String[] res = answer.split(" ");
-        quiz.responses[count1] = res[1];
+        // String[] res = answer.split(" ");
+        quiz.responses[count1] = answer;
         count1 += 1;
+        System.out.println("\n");
     }
     }
+
 
     /**
      * Displays the score report
@@ -123,24 +140,34 @@ public final class Solution {
      */
     public static void displayScore(final Quiz quiz) {
         // write your code here to display the score report
+        if(quiz.count == 0) {
+            return;
+        }
+        else {
         int total = 0;
         // System.out.println("Hi");
         for(int i = 0; i < (quiz.count); i++) {
             int correctAns = 0;
             int penality = 0;
             // System.out.println(quiz.correctAns[i]);
-            // System.out.println(quiz.questions[i]);
+            System.out.println(quiz.questions[i]);
             // System.out.println(quiz.responses[i]);
-            if(quiz.correctAns[i].equals(quiz.responses[i])) {
+            int correct = Integer.parseInt(quiz.correctAns[i]);
+            // System.out.println(correct);
+            // System.out.println(quiz.choices[correct-1]);
+            String[] opt = quiz.choices[i].split(",");
+            if(opt[correct-1].equals(quiz.responses[i])) {
+
                 correctAns = Integer.parseInt(quiz.marks[i]);
-                System.out.println("Correct Answer! - Marks Awarded: " + quiz.marks[i]);
+                System.out.println(" Correct Answer! - Marks Awarded: " + quiz.marks[i]);
             }
             else {
                 penality = Integer.parseInt(quiz.penality[i]);
-                System.out.println("Wrong Answer! - Penalty: " + quiz.penality[i]);
+                System.out.println(" Wrong Answer! - Penalty: " + quiz.penality[i]);
             }
             total = total + correctAns + penality;
         }
         System.out.println("Total Score: " + total);
+        }
     }
 }

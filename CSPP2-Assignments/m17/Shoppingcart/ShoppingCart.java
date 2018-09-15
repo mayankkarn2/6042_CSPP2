@@ -43,7 +43,6 @@ class ShoppingCart{
 
 	void addToCatalog(Item item) {
 		catalog[catalogSize++] = item;
-
 	}
 	void addToCart(Item item) {
 		if (!inCart(item)) {
@@ -85,7 +84,6 @@ class ShoppingCart{
 				cart[i].quantity = cart[i].quantity - item.quantity;
 			}
 		}
-
 	}
 	void showCart() {
 		for (Item i : cart) {

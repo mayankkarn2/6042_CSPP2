@@ -41,14 +41,10 @@ Your Output:
 | Start Quiz |
 |------------|
 question text 1(1)
-choice 1	choice 2	choice 3	choice 4
-question text 2(2)
-choice 1	choice 2	choice 3	choice 4
-question text 3(3)
-choice 1	choice 2	choice 3	choice 4
-question text 4(4)
-choice 1	choice 2	choice 3	choice 4
-|--------------|
+choice 1	choice 2	choice 3	choice 4question text 2(2)
+choice 1	choice 2	choice 3	choice 4question text 3(3)
+choice 1	choice 2	choice 3	choice 4question text 4(4)
+choice 1	choice 2	choice 3	choice 4|--------------|
 | Score Report |
 |--------------|
 question text 1
@@ -105,14 +101,10 @@ Your Output:
 | Start Quiz |
 |------------|
 question text 1(1)
-choice 1	choice 2	choice 3	choice 4
-question text 2(2)
-choice 1	choice 2	choice 3	choice 4
-question text 3(3)
-choice 1	choice 2	choice 3	choice 4
-question text 4(4)
-choice 1	choice 2	choice 3	choice 4
-|--------------|
+choice 1	choice 2	choice 3	choice 4question text 2(2)
+choice 1	choice 2	choice 3	choice 4question text 3(3)
+choice 1	choice 2	choice 3	choice 4question text 4(4)
+choice 1	choice 2	choice 3	choice 4|--------------|
 | Score Report |
 |--------------|
 question text 1
@@ -169,14 +161,10 @@ Your Output:
 | Start Quiz |
 |------------|
 question text 1(1)
-choice 1	choice 2	choice 3	choice 4
-question text 2(2)
-choice 1	choice 2	choice 3	choice 4
-question text 3(3)
-choice 1	choice 2	choice 3	choice 4
-question text 4(4)
-choice 1	choice 2	choice 3	choice 4
-|--------------|
+choice 1	choice 2	choice 3	choice 4question text 2(2)
+choice 1	choice 2	choice 3	choice 4question text 3(3)
+choice 1	choice 2	choice 3	choice 4question text 4(4)
+choice 1	choice 2	choice 3	choice 4|--------------|
 | Score Report |
 |--------------|
 question text 1
@@ -263,26 +251,16 @@ Your Output:
 | Start Quiz |
 |------------|
 question text 1(1)
-choice a	choice b	choice c	choice d
-question text 2(2)
-choice a	choice b	choice c	choice d
-question text 3(3)
-choice a	choice b	choice c	choice d
-question text 4(4)
-choice a	choice b	choice c	choice d
-question text 5(1)
-choice a	choice b	choice c	choice d
-question text 6(2)
-choice a	choice b	choice c	choice d
-question text 7(3)
-choice a	choice b	choice c	choice d
-question text 8(4)
-choice a	choice b	choice c	choice d
-question text 9(1)
-choice a	choice b	choice c	choice d
-question text 10(2)
-choice a	choice b	choice c	choice d
-|--------------|
+choice a	choice b	choice c	choice dquestion text 2(2)
+choice a	choice b	choice c	choice dquestion text 3(3)
+choice a	choice b	choice c	choice dquestion text 4(4)
+choice a	choice b	choice c	choice dquestion text 5(1)
+choice a	choice b	choice c	choice dquestion text 6(2)
+choice a	choice b	choice c	choice dquestion text 7(3)
+choice a	choice b	choice c	choice dquestion text 8(4)
+choice a	choice b	choice c	choice dquestion text 9(1)
+choice a	choice b	choice c	choice dquestion text 10(2)
+choice a	choice b	choice c	choice d|--------------|
 | Score Report |
 |--------------|
 question a
@@ -336,8 +314,7 @@ Your Output:
 | Start Quiz |
 |------------|
 question text 1(1)
-choice 1	choice 2	choice 3	choice 4
-|--------------|
+choice 1	choice 2	choice 3	choice 4|--------------|
 | Score Report |
 |--------------|
 question text 1
@@ -384,3 +361,243 @@ Error! Malformed question
 |--------------|
 | Score Report |
 |--------------|
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 4
+	at Solution.loadQuestions(Solution.java:79)
+	at Solution.main(Solution.java:36)
+
+----------------------------------------
+########## Testcase 7: Failed ##########
+Expected Output: 
+|----------------|
+| Load Questions |
+|----------------|
+Error! Correct answer choice number is out of range for question text 1
+|------------|
+| Start Quiz |
+|------------|
+|--------------|
+| Score Report |
+|--------------|
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question text 1(1)
+choice 1	choice 2	choice 3	choice 4|--------------|
+| Score Report |
+|--------------|
+question text 1
+Wrong Answer! - Penalty: -1
+Total Score: -1
+
+----------------------------------------
+########## Testcase 8: Failed ##########
+Expected Output: 
+|----------------|
+| Load Questions |
+|----------------|
+trick question  does not have enough answer choices
+|------------|
+| Start Quiz |
+|------------|
+|--------------|
+| Score Report |
+|--------------|
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question text 1(1)
+choice 4	|--------------|
+| Score Report |
+|--------------|
+trick question 
+Wrong Answer! - Penalty: -1
+Total Score: -1
+
+----------------------------------------
+########## Testcase 9: Failed ##########
+Expected Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question about sony(1)
+choice 4	choice 2
+
+|--------------|
+| Score Report |
+|--------------|
+question about sony
+ Correct Answer! - Marks Awarded: 1
+Total Score: 1
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question text 1(1)
+choice 4	choice 2	|--------------|
+| Score Report |
+|--------------|
+question about sony
+Wrong Answer! - Penalty: -1
+Total Score: -1
+
+----------------------------------------
+########## Testcase 10: Failed ##########
+Expected Output: 
+|----------------|
+| Load Questions |
+|----------------|
+Invalid max marks for question about sony
+|------------|
+| Start Quiz |
+|------------|
+|--------------|
+| Score Report |
+|--------------|
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question text 1(-1)
+choice 4	choice 2	|--------------|
+| Score Report |
+|--------------|
+question about sony
+Wrong Answer! - Penalty: -1
+Total Score: -1
+
+----------------------------------------
+########## Testcase 11: Failed ##########
+Expected Output: 
+|----------------|
+| Load Questions |
+|----------------|
+Invalid penalty for question about sony
+|------------|
+| Start Quiz |
+|------------|
+|--------------|
+| Score Report |
+|--------------|
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question text 1(1)
+choice 4	choice 2	|--------------|
+| Score Report |
+|--------------|
+question about sony
+Wrong Answer! - Penalty: 1
+Total Score: 1
+
+----------------------------------------
+########## Testcase 12: Failed ##########
+Expected Output: 
+|----------------|
+| Load Questions |
+|----------------|
+Error! Malformed question
+|------------|
+| Start Quiz |
+|------------|
+|--------------|
+| Score Report |
+|--------------|
+
+Your Output: 
+|----------------|
+| Load Questions |
+|----------------|
+1 are added to the quiz
+|------------|
+| Start Quiz |
+|------------|
+question text 1(1)
+choice 1	choice 2	choice 3	choice 4|--------------|
+| Score Report |
+|--------------|
+
+Wrong Answer! - Penalty: -1
+Total Score: -1
+
+----------------------------------------
+Result: 0/13 testcases passed.
+Starting audit...
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:0: File does not end with a newline. [NewlineAtEndOfFile]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:2:8: Unused import - java.util.Arrays. [UnusedImports]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:62: Line is longer than 80 characters (found 97). [LineLength]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:69:14: 'while' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:71:26: Array brackets at illegal position. [ArrayTypeStyle]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:78:40: '3' is a magic number. [MagicNumber]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:79:43: '4' is a magic number. [MagicNumber]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:93: Line is longer than 80 characters (found 91). [LineLength]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:99:10: 'while' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:100: Line is longer than 80 characters (found 91). [LineLength]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:100:54: '+' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:100:55: '+' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:103:12: 'for' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:104:15: 'if' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:104:21: '4' is a magic number. [MagicNumber]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:106:13: '}' at column 13 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally). [RightCurly]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:119: First sentence should end with a period. [JavadocStyle]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:128:12: 'for' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:134:15: 'if' is not followed by whitespace. [WhitespaceAround]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:136: Line is longer than 80 characters (found 89). [LineLength]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:137:13: '}' at column 13 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally). [RightCurly]
+[ERROR] C:\Users\Lenovo\Desktop\Git Repo\6042_CSPP2\cspp2-assignments\m19\Assignment-1\Solution.java:140: Line is longer than 80 characters (found 83). [LineLength]
+Audit done.
+Checkstyle ends with 22 errors.
+
+
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../../../CSPP2-Assignments/m17/Shoppingcart/ShoppingCart.java
+	modified:   ../../../CSPP2-Assignments/m19/Assignment-1/Solution.class
+	modified:   ../../../CSPP2-Assignments/m19/Assignment-1/Solution.java
+	modified:   ../../../CSPP2-Assignments/m19/Assignment-1/o.txt
+
+Untracked files:
+	../Assignment-1.zip
+
+no changes added to commit
+
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
