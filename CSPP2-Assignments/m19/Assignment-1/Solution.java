@@ -79,10 +79,6 @@ public final class Solution {
             quiz.questions[count] = inputs[0];
             quiz.choices[count] = inputs[1];
             quiz.correctAns[count] = inputs[2];
-            if(quiz.correctAns[count] <1 && quiz.correctAns[count] > 4) {
-                System.out.println("Error! Correct answer choice number is out of range for question text 1");
-                return;
-            }
             quiz.marks[count] = inputs[3];
             quiz.penality[count] = inputs[4];
             count += 1;
