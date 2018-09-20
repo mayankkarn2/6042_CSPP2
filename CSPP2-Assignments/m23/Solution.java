@@ -1,6 +1,11 @@
-import java.io.*;
-import java.util.*;
-import java.util.regex.*;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+// import java.io.FileNotFoundException;
 /**
  * Class for Solution.
  */
@@ -75,12 +80,12 @@ public final class Solution {
             while ((line = br.readLine()) != null) {
                 content += line;
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
                 e.printStackTrace();
         } finally {
             try {
                 br.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
