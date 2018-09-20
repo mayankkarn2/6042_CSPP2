@@ -1,77 +1,116 @@
 import java.io.*;
 import java.util.*;
 import java.util.regex.*;
+/**
+ * Class for Solution.
+ */
 public final class Solution {
+    /**
+     * Constructs the object.
+     */
+    private Solution() {
+        //Nothing happens here.
+    }
+    /**
+     * Converts String to Required format.
+     *
+     * @param      fileContent  The file content
+     *
+     * @return     String without delimiters
+     */
+    public static String convertString(final String fileContent) {
+        String ret = "";
+        Pattern p = Pattern.compile("[^0-9_]");
+        Matcher match = p.matcher(fileContent);
 
-	public static String ConvertString(String fileContent) {
-		String ret = "";
-		Pattern p = Pattern.compile("[^0-9_]");
-		Matcher match = p.matcher(fileContent);
-
-		while(match.find()) {
-			ret += match.group();
-		}
-		return ret.toLowerCase();
-	}
-
-	public static HashMap<String, Integer> generateHashMap(String input) {
-		String[] inputs = input.split(" ");
-		HashMap<String, Integer> map = new HashMap<>();
-		for(int i = 0; i < inputs.length; i++) {
-			int count = 1;
-			for(int j = 0 ; j < inputs.length; j++) {
-				if(inputs[i].equals(inputs[j]) && i!=j) {
-					count += 1;
-				}
-			}
-			if(map.containsKey(inputs[i])) {
-
-			}
-			else {
-				map.put(inputs[i], count);
-			}
-		}
-		// System.out.println(map);
-		return map;
-	}
-
-	public static String fileRead(String folder, String name) throws Exception {
-		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\Git Repo\\6042_CSPP2\\cspp2-assignments\\m23\\"+folder+"\\"+name));
-		String content = "";
-		String line;
-		try {
-			while((line = br.readLine()) != null) {
-				content += line;
-			}
-		} catch(IOException e) {
-				e.printStackTrace();
-		}finally {
-			try {
-				br.close();
-			}catch(IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return content;		
-	}
-	public static void main(String[] args) throws Exception{
-		Similarity sim = new Similarity();
-		Scanner s = new Scanner(System.in);
-		String folder = s.nextLine();
-		//System.out.println(name);
-		File file = new File("C:\\Users\\Lenovo\\Desktop\\Git Repo\\6042_CSPP2\\cspp2-assignments\\m23\\"+folder);
-		String[] str = file.list();
-		// String pri = Arrays.toString(str);
-		// String str1 = pri.replace("[","").replace("]","").replace(","," ");
-		// System.out.println(Arrays.toString(str1));
-		for(String files : str) {
-			String content = fileRead(folder,files);
-			String inter = ConvertString(content);
-			HashMap<String, Integer> hashmap = generateHashMap(inter);
-			Document d = new Document(files, hashmap);
-			sim.addDocument(d);
-		}
-		sim.documentSimilarity();
-		
-	}
+        while (match.find()) {
+            ret += match.group();
+        }
+        return ret.toLowerCase();
+    }
+    /**
+     * Hashmap with word and count.
+     *
+     * @param      input  The input
+     *
+     * @return     Hashmap with word and count
+     */
+    public static HashMap<String, Integer> generateHashMap(final String input) {
+        String[] inputs = input.split(" ");
+        HashMap<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < inputs.length; i++) {
+            int count = 1;
+            for (int j = 0; j < inputs.length; j++) {
+                if (inputs[i].equals(inputs[j]) && i != j) {
+                    count += 1;
+                }
+            }
+            if (map.containsKey(inputs[i])) {
+                String a;
+            } else {
+                map.put(inputs[i], count);
+            }
+        }
+        return map;
+    }
+    /**
+     * Reads the input from file.
+     *
+     * @param      folder     The folder
+     * @param      name       The name
+     *
+     * @return     String format of file.
+     *
+     * @throws     Exception  Exception if occured.
+     */
+    public static String fileRead(final String folder, final String name)
+        throws Exception {
+        BufferedReader br = new BufferedReader(
+            new FileReader("C:\\Users\\Lenovo\\Desktop\\Git Repo\\6042_CSPP2\\"
+                + "cspp2-assignments\\m23\\"
+                + folder + "\\" + name));
+        String content = "";
+        String line;
+        try {
+            while ((line = br.readLine()) != null) {
+                content += line;
+            }
+        } catch (IOException e) {
+                e.printStackTrace();
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return content;
+    }
+    /**
+     * The main function.
+     *
+     * @param      args       The arguments
+     *
+     * @throws     Exception  throws exception if occured
+     */
+    public static void main(final String[] args) throws Exception {
+        Similarity sim = new Similarity();
+        Scanner s = new Scanner(System.in);
+        if (!(s.hasNext())) {
+            System.out.println("empty directory");
+            return;
+        }
+        String folder = s.nextLine();
+        File file = new File("C:\\Users\\Lenovo\\Desktop\\"
+            + "Git Repo\\6042_CSPP2\\" + "cspp2-assignments\\m23\\" + folder);
+        String[] str = file.list();
+        for (String files : str) {
+            String content = fileRead(folder, files);
+            String inter = convertString(content);
+            HashMap<String, Integer> hashmap = generateHashMap(inter);
+            Document d = new Document(files, hashmap);
+            sim.addDocument(d);
+        }
+        sim.documentSimilarity();
+    }
 }

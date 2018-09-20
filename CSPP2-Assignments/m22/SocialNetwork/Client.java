@@ -3,7 +3,7 @@ import java.util.*;
 public final class Client {
 	public static void main(String[] args) throws Exception {
 		Network net = new Network();
-		//BufferedReader br = new BufferedReader(new FileReader("SocialNetwork.txt"));
+		// BufferedReader br = new BufferedReader(new FileReader("SocialNetwork.txt"));
 		// Reading from file
 		// String content = "";
 		// String line;
@@ -37,9 +37,9 @@ public final class Client {
 				int lineCount = 0;
 				String content = "";
 				String line;
-				Scanner sc = new Scanner(System.in);
+				// Scanner sc = new Scanner(System.in);
 				while(lineCount < Integer.parseInt(inputs[1])) {
-					line = sc.nextLine();
+					line = s.nextLine();
 					if(lineCount == Integer.parseInt(inputs[1]) - 1) {
 						content = content + line;
 					}
