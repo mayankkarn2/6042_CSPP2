@@ -112,8 +112,9 @@ public class TodoistMain {
                 throw new TitlException("Title not provided");
             }
         }catch(Exception e) {
-            System.out.println(e.getMessage());
-            flag = 1;
+            // System.out.println(e.getMessage());
+            // flag = 1;
+            throw e;
         }
         if(flag == 1) {
             // System.out.println("1");
@@ -123,11 +124,12 @@ public class TodoistMain {
         int timeToComplete = Integer.parseInt(tokens[3]);
         try {
             if(timeToComplete < 0) {
-                throw new TimeException("Invalid timeToComplete");
+                throw new TimeException("Invalid timeToComplete "+timeToComplete);
             }
         }catch(Exception e) {
-            System.out.println(e.getMessage()+" "+timeToComplete);
-            flag = 1;
+            // System.out.println(e.getMessage()+" "+timeToComplete);
+            // flag = 1;
+            throw e;
         }
         if(flag == 1) {
             return null;
@@ -137,7 +139,7 @@ public class TodoistMain {
         String status = tokens[6];
         try{
             if(!(status.equals("todo") || status.equals("done"))) {
-                throw new todException("Invalid status");
+                throw new todException("Invalid status "+status);
             }
         }catch(Exception e) {
             // System.out.println(e.getMessage()+" "+status);

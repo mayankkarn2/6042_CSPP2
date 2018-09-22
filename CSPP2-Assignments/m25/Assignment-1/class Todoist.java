@@ -14,7 +14,7 @@ class Todoist{
 
 	public String toString() {
 		if(taskArray == 0){
-			System.out.println("kkk");
+			// System.out.println("kkk");
 			return "";
 		}
 		for(int i = 0; i < taskArray; i++) {
