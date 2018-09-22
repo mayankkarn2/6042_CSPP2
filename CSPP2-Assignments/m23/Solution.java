@@ -25,7 +25,7 @@ public final class Solution {
      */
     public static String convertString(final String fileContent) {
         String ret = "";
-        Pattern p = Pattern.compile("[^0-9_]");
+        Pattern p = Pattern.compile("[^0-9_, ]");
         Matcher match = p.matcher(fileContent);
 
         while (match.find()) {
@@ -56,6 +56,7 @@ public final class Solution {
                 map.put(inputs[i], count);
             }
         }
+        // System.out.println(map);
         return map;
     }
     /**
